@@ -15,8 +15,7 @@ WhoIsHovered ← |0 (
   # Coords/`1 ?
   S ← ˜÷Pad ÷₄Side
   HF ← ÷₂-×₂Pad÷₄Side
-  °IndToPos ⊟°ℂ Mouse~Pos
-  ⍥⋅¯1 ⊃(⋅0 /× <S ⌵-⊸⁅|⁅)
+  ⁅ °IndToPos ⊟°ℂ Mouse~Pos
 )
 DrawState ← |1.0 (
   ⊃(Draw~Text!°⊸Centered 1 Cat~Text CellSide (IndToPos ⇡4_4)

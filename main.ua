@@ -5,7 +5,7 @@ Cat ~ "./catppuccin.ua"
 
 Side         ← 500
 Pad          ← 20
-OutlineGirth ← 15
+OutlineGirth ← 6
 SolvedState  ← ⍉↯4_4 ⊂⍚°⋕+1⇡15 □" "
 
 CellSide       ← -×₂Pad ÷4 Side
@@ -27,8 +27,9 @@ DrawSelected ← |1.0 (
   Draw~Square!°⊸Centered1 Cat~Yellow +OutlineGirth CellSide IndToPos
 )
 DrawHovered ← |0.0 (
-  Draw~Square!°⊸Centered 1 Cat~Green +×1.3OutlineGirth CellSide IndToPos WhoIsHovered
+  Draw~Square!°⊸Centered 1 Cat~Green +×2OutlineGirth CellSide IndToPos WhoIsHovered
 )
+SetSelectionOnClick ← |1 ⍥⋅WhoIsHovered Mouse~Down 0
 
 # HandleClick ← |2.2 ⍥(
 #  ⍣(⊙(⊟°⊟)
@@ -48,4 +49,5 @@ I~Loop!(
   I~Draw~Background Cat~Base
   DrawHovered
   ◡⊓(DrawState|⍣DrawSelected)
+  ⊙SetSelectionOnClick
 )

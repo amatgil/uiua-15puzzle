@@ -5,7 +5,7 @@ Cat ~ "./catppuccin.ua"
 Side ← 500
 Pad  ← 20
 I~Open [Side Side] "Fifteen"
-St ← ↯4_4 ⊂⍚°⋕+1⇡15 □" "
+St ← ⍉↯4_4 ⊂⍚°⋕+1⇡15 □" "
 
 CellSide ← -×2Pad ÷4 Side
 DrawState ← |1.0 (

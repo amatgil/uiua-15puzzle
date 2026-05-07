@@ -8,3 +8,7 @@ trials until we get one with proper parity).
 This was brought about because I saw from Mathologer than you can
 check the validity of a random setting by only checking parity. Isn't
 it neat that that's possible?
+
+
+** Why?
+Uiua is fun :D

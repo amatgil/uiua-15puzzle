@@ -21,7 +21,8 @@ WhoIsHovered ← |0 (
 
 DrawState ← |1.0 (
   ⊃(Draw~Text!(°⊸Centered1 °⊸Font Tipografia) Cat~Text CellSide (IndToPos ⇡4_4)
-  | Draw~Square!°⊸Centered 1 Cat~Surface₀ CellSide (IndToPos⇡4_4)
+  | Draw~Square!°⊸Centered 1 Cat~Surface₀ CellSide (IndToPos ˜(▽¬⊸∊¤) /⊂⇡4_4 HoleInd)
+  | Draw~Square!°⊸Centered 1 Cat~Surface₁ CellSide (IndToPos HoleInd)
   )
 )
 DrawSelected ← |1.0 (

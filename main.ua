@@ -21,7 +21,7 @@ WhoIsHovered ← |0 (
 
 DrawState ← |1.0 (
   ⊃(Draw~Text!(°⊸Centered1 °⊸Font Tipografia) Cat~Text CellSide (IndToPos ⇡4_4)
-  | Draw~Square!°⊸Centered 1 Cat~Surface₀ CellSide (IndToPos ˜(▽¬⊸∊¤) /⊂⇡4_4 HoleInd)
+  | Draw~Square!°⊸Centered 1 Cat~Surface₀ CellSide (IndToPos⇡4_4)
   )
 )
 DrawSelected ← |1.0 (
@@ -36,11 +36,7 @@ HandleClick ← |2.2 (
   # grid selection ? grid selection
   MoveHole ← |2.2 ⊙¯1 ˜⍜⊡⇌ ⊙⊟⟜HoleInd # Grid ¯1 ? Grid OldSel
   HandleNormalClick ← |2.2 ⊙⋅WhoIsHovered
-  HandleHoleClick ← |2.2 ⍣(
-    # Move the selected into the hole, undo selection
-    ⊙(⊟°⊟)
-    ⍩(MoveHole)
-  | ∘)
+  HandleHoleClick ← |2.2 ⍣(⍩MoveHole ⊙(⊟°⊟))∘
 
   ⍥(⨬(HandleNormalClick|HandleHoleClick)⊸(≍WhoIsHovered HoleInd)) Mouse~Down0
 )

@@ -38,7 +38,7 @@ HandleClick ← |2.2 (
   MoveHole ← |2.2 (
     # Grid ¯1 ? Grid OldSel
     ⊙⊟ ⟜HoleInd
-    ⊙(◡(⍤"Invalid move" ∊A₂/-))
+    ⊙⊸(⍤"Invalid move" ∊A₂/-)
     # ⊙(◡(⍤"Invalid move" ∊A₂/-) ⊟⟜HoleInd)
     ⊙¯1 ˜⍜⊡⇌
   )

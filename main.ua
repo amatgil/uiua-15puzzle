@@ -21,7 +21,7 @@ WhoIsHovered ← |0 (
 
 DrawState ← |1.0 (
   ⊃(Draw~Text!(°⊸Centered1 °⊸Font Tipografia) Cat~Text CellSide (IndToPos ⇡4_4)
-  | Draw~Square!°⊸Centered 1 Cat~Surface₀ CellSide (IndToPos ˜(▽¬⊸∊¤) /⊂⇡4_4 HoleInd)
+  | Draw~Square!°⊸Centered 1 Cat~Surface₀ CellSide (IndToPos ˜(▽¬⊸∊¤)/⊂⇡4_4 HoleInd)
   | Draw~Square!°⊸Centered 1 Cat~Surface₁ CellSide (IndToPos HoleInd)
   )
 )
@@ -35,7 +35,13 @@ DrawHovered ← |0.0 (
 )
 HandleClick ← |2.2 (
   # grid selection ? grid selection
-  MoveHole ← |2.2 ⊙¯1 ˜⍜⊡⇌ ⊙⊟⟜HoleInd # Grid ¯1 ? Grid OldSel
+  MoveHole ← |2.2 (
+    # Grid ¯1 ? Grid OldSel
+    ⊙⊟ ⟜HoleInd
+    ⊙(◡(⍤"Invalid move" ∊A₂/-))
+    # ⊙(◡(⍤"Invalid move" ∊A₂/-) ⊟⟜HoleInd)
+    ⊙¯1 ˜⍜⊡⇌
+  )
   HandleNormalClick ← |2.2 ⊙⋅WhoIsHovered
   HandleHoleClick ← |2.2 ⍣(⍩MoveHole ⊙(⊟°⊟))∘
 
@@ -52,5 +58,5 @@ I~Loop!(
   I~Draw~Background Cat~Base
   DrawHovered
   ◡⊓(DrawState|⍣DrawSelected)
-  HandleClick
+  ⍣HandleClick(&p"Invalid move")
 )

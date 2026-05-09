@@ -47,6 +47,7 @@ HandleClick ← |2.2 (
 
   ⍥(⨬(HandleNormalClick|HandleHoleClick)⊸(≍WhoIsHovered HoleInd)) Mouse~Down0
 )
+Shuffle ← |1 (⍢(^|¬◿₂/+⧈<♭)^)!⍜♭°⍆ # Keep shuffling until even parity perm
 
 # Stack is: the grid of numbers, then either `1 or a two-array
 # showing indices of the currenly selected cell
@@ -59,4 +60,5 @@ I~Loop!(
   DrawHovered
   ◡⊓(DrawState|⍣DrawSelected)
   ⍣HandleClick(&p"Invalid move")
+  ⍥Shuffle Key~Pressed @S
 )

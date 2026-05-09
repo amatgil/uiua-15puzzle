@@ -7,6 +7,7 @@ Side         ← 500
 Pad          ← 20
 OutlineGirth ← 6
 SolvedState  ← ⍉↯4_4 ⊂⍚°⋕+1⇡15 □" "
+Tipografia   ← "Uiua386.ttf"
 
 CellSide       ← -×₂Pad ÷4 Side
 IndToPos       ← +Pad+÷₂CellSide ×Side ÷4 # The _centered_ position
@@ -18,7 +19,7 @@ WhoIsHovered ← |0 (
   ⁅ °IndToPos ⊟°ℂ Mouse~Pos
 )
 DrawState ← |1.0 (
-  ⊃(Draw~Text!°⊸Centered 1 Cat~Text CellSide (IndToPos ⇡4_4)
+  ⊃(Draw~Text!(°⊸Centered1 °⊸Font Tipografia) Cat~Text CellSide (IndToPos ⇡4_4)
   | Draw~Square!°⊸Centered 1 Cat~Surface₀ CellSide (IndToPos ⍜∩♭₋₁× ⊙(⇡4_4) ≡₀(¬≍□" "))
   )
 )
